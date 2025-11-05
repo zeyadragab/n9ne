@@ -15,13 +15,3 @@ app.use("/api", userServices);
 app.use("/api", paymentServices);
 app.use("/api", categoryServices);
 app.use("/api", shippingServices);
-app.use("/api", productServices);
-
-// Database connection
-
-const PORT = 8080;
-
-// Start server
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
