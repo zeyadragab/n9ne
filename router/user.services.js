@@ -1,21 +1,8 @@
-const mysql = require("mysql");
 const express = require("express");
 const router = express.Router();
+const {con} = require('../db/db');
 
-global.con = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "n9ne",
-});
 
-con.connect(function (err) {
-  if (err) {
-    console.error("Database connection failed:", err);
-    return;
-  }
-  console.log("Database is connected successfully");
-});
 
 router.post("/users", (req, res) => {
   console.log("Post Request Received");
@@ -62,7 +49,8 @@ router.get("/users", (req, res) => {
       }
     );
   }
-  console.log(`Incoming Request http://localhost:${PORT}`);
+
+  
 });
 
 router.delete("/users", (req, res) => {
