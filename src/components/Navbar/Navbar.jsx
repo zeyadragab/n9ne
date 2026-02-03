@@ -71,8 +71,8 @@ const Navbar = () => {
       transition={{ duration: 0.5, ease: "easeOut" }}
       className={`fixed w-full z-50 transition-all duration-300 ${
         scrolled || isMenuOpen
-          ? "bg-black py-3 shadow-lg shadow-purple-500/20"
-          : "bg-black/90 backdrop-blur-lg py-5"
+          ? "bg-black/90 backdrop-blur-lg py-3 shadow-lg shadow-purple-500/20"
+          : "bg-transparent py-5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
