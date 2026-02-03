@@ -8,6 +8,7 @@ import Footer from "./components/Footer/Footer.jsx";
 const HomePage = lazy(() => import("./pages/HomePage.jsx"));
 const ServicesPage = lazy(() => import("./pages/ServicesPage.jsx"));
 const ServiceDetailPage = lazy(() => import("./pages/ServiceDetailPage.jsx"));
+const PortfolioPage = lazy(() => import("./pages/PortfolioPage.jsx"));
 const AboutPage = lazy(() => import("./pages/AboutPage.jsx"));
 const ContactPage = lazy(() => import("./pages/ContactPage.jsx"));
 
@@ -30,6 +31,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/services/:slug" element={<ServiceDetailPage />} />
+          <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Routes>

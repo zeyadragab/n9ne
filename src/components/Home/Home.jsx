@@ -112,14 +112,15 @@ const Hero = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </motion.a>
 
-              <motion.button
+              <motion.a
+                href="/portfolio"
                 whileHover={{ scale: 1.03, y: -2 }}
                 whileTap={{ scale: 0.97 }}
                 className="px-5 py-2.5 sm:px-6 sm:py-3 border-2 border-purple-500/50 rounded-lg font-semibold text-sm sm:text-base hover:bg-purple-500/10 hover:border-purple-400 transition-all duration-300 backdrop-blur-sm relative overflow-hidden group"
               >
                 <span className="relative z-10">View Our Work</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600/10 via-pink-600/10 to-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </motion.button>
+              </motion.a>
             </motion.div>
 
             {/* Trust Indicators */}
