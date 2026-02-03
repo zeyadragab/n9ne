@@ -5,17 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   // Close menu and scroll to top when route changes
   useEffect(() => {
@@ -69,11 +59,7 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled || isMenuOpen
-          ? "bg-black/90 backdrop-blur-lg py-3 shadow-lg shadow-purple-500/20"
-          : "bg-transparent py-5"
-      }`}
+      className={`w-full z-50 transition-all duration-300 bg-transparent py-5`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
