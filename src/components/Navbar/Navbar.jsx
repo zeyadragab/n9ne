@@ -6,32 +6,16 @@ import { motion, AnimatePresence } from "framer-motion";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [visible, setVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
   const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      // Determine if scrolled past threshold
-      setScrolled(currentScrollY > 20);
-
-      // Hide/show navbar based on scroll direction
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        // Scrolling down & past 100px - hide navbar
-        setVisible(false);
-      } else {
-        // Scrolling up - show navbar
-        setVisible(true);
-      }
-
-      setLastScrollY(currentScrollY);
+      setScrolled(window.scrollY > 20);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
   // Close menu and scroll to top when route changes
   useEffect(() => {
@@ -82,13 +66,13 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      initial={{ y: 0 }}
-      animate={{ y: visible || isMenuOpen ? 0 : -100 }}
-      transition={{ duration: 0.3, ease: "easeInOut" }}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
       className={`fixed w-full z-50 transition-all duration-300 ${
         scrolled || isMenuOpen
-          ? "bg-black py-4 shadow-lg shadow-purple-500/10"
-          : "bg-black/80 backdrop-blur-lg py-6"
+          ? "bg-black py-3 shadow-lg shadow-purple-500/20"
+          : "bg-black/90 backdrop-blur-lg py-5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
