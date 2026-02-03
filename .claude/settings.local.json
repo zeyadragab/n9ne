@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run build:*)",
+      "Bash(npx eslint:*)",
+      "Bash(git init:*)",
+      "Bash(gh auth:*)",
+      "Bash(git add:*)",
+      "Bash(cmd.exe /c \"cd /d \"\"C:\\\\Users\\\\Boyka\\\\Zeyad Ragab\\\\n9ne\"\" && del /f /q nul\")",
+      "Bash(ls:*)"
+    ]
+  }
+}
