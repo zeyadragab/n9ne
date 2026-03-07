@@ -92,11 +92,8 @@ const PortfolioPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-bg-main via-bg-secondary to-bg-main">
       {/* Background Effects */}
-      <div className="fixed top-20 left-10 w-72 h-72 bg-accent-purple/10 rounded-full blur-3xl animate-pulse"></div>
-      <div
-        className="fixed bottom-20 right-10 w-96 h-96 bg-accent-blue/10 rounded-full blur-3xl animate-pulse"
-        style={{ animationDelay: "1s" }}
-      ></div>
+      <div className="fixed top-20 left-10 w-72 h-72 bg-accent-purple/10 rounded-full blur-3xl"></div>
+      <div className="fixed bottom-20 right-10 w-96 h-96 bg-accent-blue/10 rounded-full blur-3xl"></div>
 
       <div className="relative z-10 pt-24 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         {/* Header */}

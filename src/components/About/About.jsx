@@ -7,7 +7,7 @@ const AboutUs = () => {
   const controls = useAnimation();
   const [ref, inView] = useInView({
     threshold: 0.1,
-    triggerOnce: false,
+    triggerOnce: true,
   });
 
   useEffect(() => {
@@ -77,25 +77,19 @@ const AboutUs = () => {
       className="py-24 bg-gradient-to-b from-bg-main via-bg-secondary to-bg-main relative overflow-hidden"
       style={{ transform: "translateZ(0)" }}
     >
-      {/* Enhanced Background elements */}
-      <div className="absolute top-10 left-0 w-40 h-40 bg-accent-purple rounded-full opacity-10 blur-3xl will-change-transform animate-pulse"></div>
-      <div
-        className="absolute bottom-20 right-0 w-56 h-56 bg-accent-blue rounded-full opacity-10 blur-3xl will-change-transform animate-pulse"
-        style={{ animationDelay: "1s" }}
-      ></div>
-      <div
-        className="absolute top-1/2 right-1/4 w-48 h-48 bg-accent-pink rounded-full opacity-10 blur-3xl will-change-transform animate-pulse"
-        style={{ animationDelay: "2s" }}
-      ></div>
+      {/* Enhanced Background elements - Optimized for performance without pulse & will-change */}
+      <div className="absolute top-10 left-0 w-40 h-40 bg-accent-purple rounded-full opacity-10 blur-3xl"></div>
+      <div className="absolute bottom-20 right-0 w-56 h-56 bg-accent-blue rounded-full opacity-10 blur-3xl"></div>
+      <div className="absolute top-1/2 right-1/4 w-48 h-48 bg-accent-pink rounded-full opacity-10 blur-3xl"></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div
-          ref={ref}
-          initial="hidden"
-          animate={controls}
-          variants={containerVariants}
-          className="text-center mb-16"
-        >
+      <motion.div 
+        ref={ref}
+        initial="hidden"
+        animate={controls}
+        variants={containerVariants}
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
+      >
+        <div className="text-center mb-16">
           <motion.h2
             variants={itemVariants}
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-main mb-6"
@@ -112,16 +106,14 @@ const AboutUs = () => {
             We're not just another social media marketing agency - we're your
             strategic growth partner committed to excellence
           </motion.p>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            variants={itemVariants}
             className="relative"
           >
-            <div className="absolute -inset-4 bg-gradient-to-tr from-accent-purple via-accent-pink to-accent-blue rounded-3xl transform rotate-3  will-change-transform"></div>
+            <div className="absolute -inset-4 bg-gradient-to-tr from-accent-purple via-accent-pink to-accent-blue rounded-3xl transform rotate-3"></div>
             <div className="relative bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-100 group">
               <div className="w-full h-96 overflow-hidden">
                 <img
@@ -148,9 +140,7 @@ const AboutUs = () => {
             </div>
 
             <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.8, type: "spring", stiffness: 100 }}
+              variants={itemVariants}
               className="absolute -bottom-6 -right-6 bg-gradient-to-r from-accent-purple to-accent-blue text-white p-4 rounded-xl shadow-lg shadow-accent-purple/30"
             >
               <div className="flex items-center">
@@ -165,12 +155,7 @@ const AboutUs = () => {
             </motion.div>
           </motion.div>
 
-          <motion.div
-            ref={ref}
-            initial="hidden"
-            animate={controls}
-            variants={containerVariants}
-          >
+          <div className="flex flex-col">
             <motion.p
               variants={itemVariants}
               className="text-text-muted mb-6 text-lg"
@@ -263,9 +248,9 @@ const AboutUs = () => {
                 </svg>
               </motion.button>
             </motion.div>
-          </motion.div>
+          </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

@@ -1,35 +1,18 @@
 // src/components/Hero.jsx
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowRight, Sparkles, TrendingUp, Zap } from "lucide-react";
 
 const Hero = () => {
-  const sectionRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end start"],
-  });
-
-  // Create scroll-based transformations
-  const yText = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const yIllustration = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const scaleIllustration = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
-  const opacitySection = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-  const rotate = useTransform(scrollYProgress, [0, 1], [0, 360]);
-
   return (
     <motion.section
-      ref={sectionRef}
       id="home"
       className="min-h-screen pt-32 pb-20 md:pt-48 md:pb-32 relative overflow-hidden flex items-center bg-bg-main"
-      style={{ opacity: opacitySection, transform: 'translateZ(0)' }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           {/* Text content */}
           <motion.div
             className="text-text-main space-y-8"
-            style={{ y: yText }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -140,10 +123,6 @@ const Hero = () => {
           {/* 3D Illustration / Visual */}
           <motion.div
             className="relative mt-12 md:mt-0 h-[500px] md:h-[600px]"
-            style={{
-              y: yIllustration,
-              scale: scaleIllustration,
-            }}
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -212,7 +191,8 @@ const Hero = () => {
 
               {/* Rotating ring */}
               <motion.div
-                style={{ rotate }}
+                animate={{ rotate: 360 }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border-2 border-dashed border-accent-purple/20 rounded-full"
               />
             </div>
@@ -220,18 +200,13 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Background elements with parallax effect */}
-      <motion.div
-        className="absolute inset-0 -z-10"
-        style={{
-          y: useTransform(scrollYProgress, [0, 1], ["0%", "20%"]),
-        }}
-      >
+      {/* Background elements */}
+      <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-b from-bg-secondary via-bg-tertiary to-bg-main opacity-90"></div>
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-accent-purple rounded-full mix-blend-multiply filter blur-3xl opacity-10 will-change-transform"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-accent-blue rounded-full mix-blend-multiply filter blur-3xl opacity-10 will-change-transform"></div>
-        <div className="absolute top-1/2 left-1/2 w-56 h-56 bg-accent-pink rounded-full mix-blend-multiply filter blur-3xl opacity-10 will-change-transform"></div>
-      </motion.div>
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-accent-purple rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-accent-blue rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+        <div className="absolute top-1/2 left-1/2 w-56 h-56 bg-accent-pink rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+      </div>
 
       {/* Scroll Indicator */}
       <motion.div
