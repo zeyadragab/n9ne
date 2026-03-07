@@ -59,16 +59,16 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="absolute top-0 left-0 w-full z-50 bg-transparent py-4"
+      className="absolute top-0 left-0 w-full z-50 py-4"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link to="/" className="flex items-center text-amber-50">
+          <Link to="/" className="flex items-center text-text-main">
             <img
-              src="/image/Logo/white-logo.png"
+              src="../../image/Logo/N9NE.png"
               alt="N9ne Agency"
-              className="h-10 w-auto"
+              className="h-30 w-auto"
             />
           </Link>
 
@@ -78,13 +78,13 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 to={link.path}
-                className="text-white/90 hover:text-white transition-colors duration-200 text-sm font-medium"
+                className="text-text-muted hover:text-text-main transition-colors duration-200 text-sm font-medium"
               >
                 {link.name}
               </Link>
             ))}
             <Link to="/contact">
-              <button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white px-6 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 shadow-lg shadow-purple-500/30">
+              <button className="relative inline-flex items-center justify-center px-8 py-3 text-sm font-bold text-white transition-all duration-300 bg-gradient-to-r from-accent-purple via-accent-pink to-accent-blue rounded sm:rounded border border-white/20 shadow-[0_8px_30px_rgb(124,58,237,0.2)] hover:shadow-[0_8px_30px_rgb(124,58,237,0.4)] hover:-translate-y-0.5">
                 Get Started
               </button>
             </Link>
@@ -93,7 +93,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <motion.button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden text-white p-2"
+            className="md:hidden text-text-main p-2"
             whileTap={{ scale: 0.9 }}
           >
             <AnimatePresence mode="wait">
@@ -130,7 +130,7 @@ const Navbar = () => {
               initial="hidden"
               animate="visible"
               exit="hidden"
-              className="md:hidden mt-4 overflow-hidden bg-black rounded-xl border border-purple-500/20"
+              className="md:hidden mt-4 overflow-hidden bg-bg-main rounded-xl border border-bg-secondary shadow-lg shadow-bg-secondary"
             >
               <div className="p-4 space-y-2">
                 {navLinks.map((link, index) => (
@@ -143,7 +143,7 @@ const Navbar = () => {
                   >
                     <Link
                       to={link.path}
-                      className="block text-white/90 hover:text-white px-4 py-3 rounded-lg hover:bg-purple-500/10 transition-all duration-200"
+                      className="block text-text-muted hover:text-text-main px-4 py-3 rounded-lg hover:bg-bg-secondary transition-all duration-200"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {link.name}
@@ -157,7 +157,7 @@ const Navbar = () => {
                   animate="visible"
                 >
                   <Link to="/contact" onClick={() => setIsMenuOpen(false)}>
-                    <button className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-3 rounded-lg text-sm font-medium mt-2">
+                    <button className="w-full relative inline-flex items-center justify-center px-8 py-4 mt-4 text-base font-bold text-white transition-all duration-300 bg-gradient-to-r from-accent-purple via-accent-pink to-accent-blue rounded-2xl border border-white/20 shadow-lg shadow-accent-purple/20 hover:shadow-xl hover:shadow-accent-purple/40 active:scale-95">
                       Get Started
                     </button>
                   </Link>

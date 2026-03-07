@@ -7,7 +7,15 @@
       "Bash(gh auth:*)",
       "Bash(git add:*)",
       "Bash(cmd.exe /c \"cd /d \"\"C:\\\\Users\\\\Boyka\\\\Zeyad Ragab\\\\n9ne\"\" && del /f /q nul\")",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(git commit:*)",
+      "Bash(git config:*)",
+      "Bash(git remote add origin git@github.com:zeyadragab/n9ne.git)",
+      "Bash(git branch -M main)",
+      "Bash(git push -u origin main)",
+      "Bash(git remote set-url origin https://github.com/zeyadragab/n9ne.git)",
+      "Bash(git push)",
+      "Bash(for f in public/image/Logo/*.png)"
     ]
   }
 }

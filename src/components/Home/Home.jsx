@@ -21,14 +21,14 @@ const Hero = () => {
     <motion.section
       ref={sectionRef}
       id="home"
-      className="min-h-screen pt-32 pb-20 md:pt-48 md:pb-32 relative overflow-hidden flex items-center"
+      className="min-h-screen pt-32 pb-20 md:pt-48 md:pb-32 relative overflow-hidden flex items-center bg-bg-main"
       style={{ opacity: opacitySection, transform: 'translateZ(0)' }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           {/* Text content */}
           <motion.div
-            className="text-white space-y-8"
+            className="text-text-main space-y-8"
             style={{ y: yText }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -39,10 +39,10 @@ const Hero = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-blue-500/20 border border-purple-500/30 backdrop-blur-sm"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-accent-purple/10 via-accent-pink/10 to-accent-blue/10 border border-accent-purple/20 backdrop-blur-sm"
             >
-              <Sparkles className="w-4 h-4 text-purple-400" />
-              <span className="text-sm font-medium bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
+              <Sparkles className="w-4 h-4 text-accent-purple" />
+              <span className="text-sm font-medium bg-gradient-to-r from-accent-purple via-accent-pink to-accent-blue bg-clip-text text-transparent">
                 #1 Digital Marketing Agency
               </span>
             </motion.div>
@@ -53,10 +53,10 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.6 }}
-                className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight"
+                className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-text-main"
               >
                 Transform Your
-                <span className="block bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
+                <span className="block bg-gradient-to-r from-accent-purple via-accent-pink to-accent-blue bg-clip-text text-transparent">
                   Digital Presence
                 </span>
               </motion.h1>
@@ -65,7 +65,7 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.6 }}
-                className="text-xl md:text-2xl text-gray-300 max-w-xl"
+                className="text-xl md:text-2xl text-text-muted max-w-xl"
               >
                 We create powerful digital experiences that drive growth, engagement, and results for your brand.
               </motion.p>
@@ -84,10 +84,10 @@ const Hero = () => {
                 { value: "24/7", label: "Support" }
               ].map((stat, index) => (
                 <div key={index} className="text-center">
-                  <div className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+                  <div className="text-3xl font-bold bg-gradient-to-r from-accent-purple to-accent-blue bg-clip-text text-transparent">
                     {stat.value}
                   </div>
-                  <div className="text-sm text-gray-400 mt-1">{stat.label}</div>
+                  <div className="text-sm text-text-muted mt-1">{stat.label}</div>
                 </div>
               ))}
             </motion.div>
@@ -101,25 +101,21 @@ const Hero = () => {
             >
               <motion.a
                 href="/services"
-                whileHover={{ scale: 1.03, y: -2 }}
-                whileTap={{ scale: 0.97 }}
-                className="group relative px-5 py-2.5 sm:px-6 sm:py-3 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-lg font-semibold text-sm sm:text-base overflow-hidden shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 transition-all duration-300"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 text-sm sm:text-base font-bold text-white transition-all duration-300 bg-gradient-to-r from-accent-purple via-accent-pink to-accent-blue rounded-2xl border border-white/20 shadow-[0_8px_30px_rgb(124,58,237,0.2)] hover:shadow-[0_8px_30px_rgb(124,58,237,0.4)]"
               >
-                <span className="relative z-10 flex items-center gap-2">
-                  Get Started Now
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <span>Get Started Now</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
               </motion.a>
 
               <motion.a
                 href="/portfolio"
-                whileHover={{ scale: 1.03, y: -2 }}
-                whileTap={{ scale: 0.97 }}
-                className="px-5 py-2.5 sm:px-6 sm:py-3 border-2 border-purple-500/50 rounded-lg font-semibold text-sm sm:text-base hover:bg-purple-500/10 hover:border-purple-400 transition-all duration-300 backdrop-blur-sm relative overflow-hidden group"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center justify-center px-8 py-4 text-sm sm:text-base font-bold text-text-main transition-all duration-300 bg-bg-secondary/50 backdrop-blur-md rounded-2xl border border-accent-purple/30 hover:bg-bg-main hover:border-accent-purple/60 hover:shadow-[0_8px_30px_rgb(124,58,237,0.1)]"
               >
-                <span className="relative z-10">View Our Work</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-600/10 via-pink-600/10 to-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                View Our Work
               </motion.a>
             </motion.div>
 
@@ -131,12 +127,12 @@ const Hero = () => {
               className="flex items-center gap-6 pt-4"
             >
               <div className="flex items-center gap-2">
-                <TrendingUp className="w-5 h-5 text-green-400" />
-                <span className="text-sm text-gray-400">Growing Fast</span>
+                <TrendingUp className="w-5 h-5 text-green-500" />
+                <span className="text-sm text-text-muted">Growing Fast</span>
               </div>
               <div className="flex items-center gap-2">
-                <Zap className="w-5 h-5 text-yellow-400" />
-                <span className="text-sm text-gray-400">Quick Delivery</span>
+                <Zap className="w-5 h-5 text-yellow-500" />
+                <span className="text-sm text-text-muted">Quick Delivery</span>
               </div>
             </motion.div>
           </motion.div>
@@ -164,20 +160,20 @@ const Hero = () => {
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-96 bg-gradient-to-br from-purple-900/40 via-pink-900/40 to-blue-900/40 backdrop-blur-xl rounded-3xl border border-purple-500/30 shadow-2xl shadow-purple-500/50 p-8"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-96 bg-bg-secondary/40 backdrop-blur-xl rounded-3xl border border-accent-purple/20 shadow-2xl shadow-accent-purple/10 p-8"
               >
                 <div className="flex flex-col justify-between h-full">
                   <div>
-                    <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-blue-500 rounded-2xl mb-4 flex items-center justify-center">
+                    <div className="w-16 h-16 bg-gradient-to-br from-accent-purple to-accent-blue rounded-2xl mb-4 flex items-center justify-center">
                       <Sparkles className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="text-2xl font-bold text-white mb-2">Digital Excellence</h3>
-                    <p className="text-gray-300">Crafting exceptional digital experiences</p>
+                    <h3 className="text-2xl font-bold text-text-main mb-2">Digital Excellence</h3>
+                    <p className="text-text-muted">Crafting exceptional digital experiences</p>
                   </div>
                   <div className="space-y-2">
-                    <div className="h-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"></div>
-                    <div className="h-2 bg-gradient-to-r from-pink-500 to-blue-500 rounded-full w-3/4"></div>
-                    <div className="h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full w-1/2"></div>
+                    <div className="h-2 bg-gradient-to-r from-accent-purple to-accent-pink rounded-full"></div>
+                    <div className="h-2 bg-gradient-to-r from-accent-pink to-accent-blue rounded-full w-3/4"></div>
+                    <div className="h-2 bg-gradient-to-r from-accent-blue to-accent-purple rounded-full w-1/2"></div>
                   </div>
                 </div>
               </motion.div>
@@ -193,9 +189,9 @@ const Hero = () => {
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
-                className="absolute top-10 right-10 w-32 h-32 bg-gradient-to-br from-purple-600/30 to-pink-600/30 backdrop-blur-xl rounded-2xl border border-purple-500/30 flex items-center justify-center shadow-lg"
+                className="absolute top-10 right-10 w-32 h-32 bg-gradient-to-br from-accent-purple/10 to-accent-pink/10 backdrop-blur-xl rounded-2xl border border-accent-purple/20 flex items-center justify-center shadow-lg"
               >
-                <TrendingUp className="w-12 h-12 text-purple-300" />
+                <TrendingUp className="w-12 h-12 text-accent-purple" />
               </motion.div>
 
               <motion.div
@@ -209,15 +205,15 @@ const Hero = () => {
                   ease: "easeInOut",
                   delay: 0.5
                 }}
-                className="absolute bottom-10 left-10 w-28 h-28 bg-gradient-to-br from-blue-600/30 to-purple-600/30 backdrop-blur-xl rounded-2xl border border-blue-500/30 flex items-center justify-center shadow-lg"
+                className="absolute bottom-10 left-10 w-28 h-28 bg-gradient-to-br from-accent-blue/10 to-accent-purple/10 backdrop-blur-xl rounded-2xl border border-accent-blue/20 flex items-center justify-center shadow-lg"
               >
-                <Zap className="w-10 h-10 text-blue-300" />
+                <Zap className="w-10 h-10 text-accent-blue" />
               </motion.div>
 
               {/* Rotating ring */}
               <motion.div
                 style={{ rotate }}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border-2 border-dashed border-purple-500/20 rounded-full"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border-2 border-dashed border-accent-purple/20 rounded-full"
               />
             </div>
           </motion.div>
@@ -231,10 +227,10 @@ const Hero = () => {
           y: useTransform(scrollYProgress, [0, 1], ["0%", "20%"]),
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-purple-950 via-indigo-950 to-black opacity-95"></div>
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-600 rounded-full mix-blend-soft-light filter blur-3xl opacity-20 will-change-transform"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-blue-600 rounded-full mix-blend-soft-light filter blur-3xl opacity-20 will-change-transform"></div>
-        <div className="absolute top-1/2 left-1/2 w-56 h-56 bg-pink-600 rounded-full mix-blend-soft-light filter blur-3xl opacity-15 will-change-transform"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-bg-secondary via-bg-tertiary to-bg-main opacity-90"></div>
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-accent-purple rounded-full mix-blend-multiply filter blur-3xl opacity-10 will-change-transform"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-accent-blue rounded-full mix-blend-multiply filter blur-3xl opacity-10 will-change-transform"></div>
+        <div className="absolute top-1/2 left-1/2 w-56 h-56 bg-accent-pink rounded-full mix-blend-multiply filter blur-3xl opacity-10 will-change-transform"></div>
       </motion.div>
 
       {/* Scroll Indicator */}
@@ -253,8 +249,8 @@ const Hero = () => {
           }}
           className="flex flex-col items-center gap-2 cursor-pointer group"
         >
-          <span className="text-sm text-gray-400 group-hover:text-purple-400 transition-colors">Scroll to explore</span>
-          <div className="w-6 h-10 border-2 border-purple-500/50 rounded-full flex items-start justify-center p-2">
+          <span className="text-sm text-text-muted group-hover:text-accent-purple transition-colors">Scroll to explore</span>
+          <div className="w-6 h-10 border-2 border-accent-purple/50 rounded-full flex items-start justify-center p-2">
             <motion.div
               animate={{ y: [0, 12, 0] }}
               transition={{
@@ -262,7 +258,7 @@ const Hero = () => {
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
-              className="w-1.5 h-1.5 bg-gradient-to-b from-purple-400 to-blue-400 rounded-full"
+              className="w-1.5 h-1.5 bg-gradient-to-b from-accent-purple to-accent-blue rounded-full"
             />
           </div>
         </motion.div>

@@ -22,7 +22,7 @@ export const servicesData = [
     image:
       "https://media.licdn.com/dms/image/v2/D5612AQF9fKQ6CQfUzg/article-cover_image-shrink_720_1280/B56ZXync45GUAI-/0/1743532184578?e=2147483647&v=beta&t=JJAIHwSW1hJGPJQ9Q_JfnMmyYmUV6-6PefA2inN39qs",
     icon: Code,
-    color: "from-purple-600 to-blue-600",
+    color: "from-accent-purple to-accent-blue",
     features: [
       "Responsive Design for All Devices",
       "SEO Optimized Structure",
@@ -47,7 +47,7 @@ export const servicesData = [
     image:
       "https://thetrafficverse.com/wp-content/uploads/2024/12/Lead-Generation.webp",
     icon: Share2,
-    color: "from-pink-600 to-purple-600",
+    color: "from-accent-pink to-accent-purple",
     features: [
       "Content Strategy & Planning",
       "Daily Posting Schedule",
@@ -79,7 +79,7 @@ export const servicesData = [
     image:
       "https://brv.us.com/wp-content/uploads/2025/05/pexels-photo-31718971.jpeg",
     icon: Video,
-    color: "from-blue-600 to-cyan-600",
+    color: "from-accent-blue to-accent-purple",
     features: [
       "Professional Color Grading",
       "Motion Graphics & Effects",
@@ -109,7 +109,7 @@ export const servicesData = [
     image:
       "https://images.pexels.com/photos/20223012/pexels-photo-20223012.jpeg?cs=srgb&dl=pexels-amar-20223012.jpg&fm=jpg",
     icon: Camera,
-    color: "from-purple-600 to-pink-600",
+    color: "from-orange-500 to-accent-pink",
     features: [
       "Product Photography",
       "Corporate Headshots",
@@ -134,7 +134,7 @@ export const servicesData = [
     image:
       "https://images.pexels.com/photos/4064838/pexels-photo-4064838.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200",
     icon: Film,
-    color: "from-indigo-600 to-purple-600",
+    color: "from-accent-blue to-accent-pink",
     features: [
       "4K & HD Video Production",
       "Multi-Camera Setup",
@@ -164,7 +164,7 @@ export const servicesData = [
     image:
       "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=300&fit=crop&crop=entropy&auto=format&q=80",
     icon: Users,
-    color: "from-blue-600 to-indigo-600",
+    color: "from-teal-500 to-accent-blue",
     features: [
       "24/7 Community Monitoring",
       "Member Engagement & Interaction",
@@ -189,7 +189,7 @@ export const servicesData = [
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOU269pEbXaj1NtGrzq8Uggxl7tD5t3chjDA&s",
     icon: Palette,
-    color: "from-pink-600 to-rose-600",
+    color: "from-accent-pink to-orange-500",
     features: [
       "Custom Graphic Design",
       "Marketing Material Creation",
@@ -220,7 +220,7 @@ export const servicesData = [
     image:
       "https://img.freepik.com/free-vector/gradient-erp-illustration_23-2149379179.jpg",
     icon: Cog,
-    color: "from-orange-600 to-red-600",
+    color: "from-orange-500 to-red-500",
     features: [
       "Custom ERP Implementation",
       "Business Process Integration",
@@ -245,7 +245,7 @@ export const servicesData = [
     image:
       "https://n8n-automation.com/wp-content/uploads/2024/01/head_new-1.jpeg?w=1024",
     icon: Workflow,
-    color: "from-green-600 to-teal-600",
+    color: "from-teal-500 to-accent-blue",
     features: [
       "Custom Workflow Design",
       "Multi-Platform Integration",

@@ -7,15 +7,15 @@ const Services = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="relative py-20 bg-gradient-to-b from-black via-purple-950/20 to-black overflow-hidden">
+    <section className="relative py-20 bg-gradient-to-b from-bg-main via-bg-secondary to-bg-main overflow-hidden">
       {/* Animated background elements */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-purple-600/10 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute top-20 left-10 w-72 h-72 bg-accent-purple/10 rounded-full blur-3xl animate-pulse"></div>
       <div
-        className="absolute bottom-20 right-10 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl animate-pulse"
+        className="absolute bottom-20 right-10 w-96 h-96 bg-accent-blue/10 rounded-full blur-3xl animate-pulse"
         style={{ animationDelay: "1s" }}
       ></div>
       <div
-        className="absolute top-1/2 left-1/2 w-80 h-80 bg-pink-600/10 rounded-full blur-3xl animate-pulse"
+        className="absolute top-1/2 left-1/2 w-80 h-80 bg-accent-pink/10 rounded-full blur-3xl animate-pulse"
         style={{ animationDelay: "2s" }}
       ></div>
 
@@ -33,21 +33,21 @@ const Services = () => {
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, type: "spring", stiffness: 100 }}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-blue-500/20 border border-purple-500/40 backdrop-blur-sm mb-6"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-accent-purple/10 via-accent-pink/10 to-accent-blue/10 border border-accent-purple/20 backdrop-blur-sm mb-6"
           >
-            <Sparkles className="w-5 h-5 text-purple-400" />
-            <span className="text-sm font-semibold bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
+            <Sparkles className="w-5 h-5 text-accent-purple" />
+            <span className="text-sm font-semibold bg-gradient-to-r from-accent-purple via-accent-pink to-accent-blue bg-clip-text text-transparent">
               What We Offer
             </span>
           </motion.div>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-text-main">
             Our{" "}
-            <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-accent-purple via-accent-pink to-accent-blue bg-clip-text text-transparent">
               Premium Services
             </span>
           </h2>
-          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-text-muted max-w-3xl mx-auto leading-relaxed">
             Comprehensive digital solutions designed to elevate your brand and
             dominate your market with cutting-edge technology
           </p>
@@ -74,16 +74,13 @@ const Services = () => {
           className="text-center mt-12 sm:mt-16"
         >
           <motion.button
-            whileHover={{ scale: 1.03, y: -2 }}
-            whileTap={{ scale: 0.97 }}
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => navigate("/services")}
-            className="group relative px-5 py-2.5 sm:px-6 sm:py-3 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-lg font-semibold text-sm sm:text-base overflow-hidden shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 transition-all duration-300"
+            className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 text-sm sm:text-base font-bold text-white transition-all duration-300 bg-gradient-to-r  from-accent-purple via-accent-pink to-accent-blue rounded border border-white/20 shadow-[0_8px_30px_rgb(124,58,237,0.2)] hover:shadow-[0_8px_30px_rgb(124,58,237,0.4)] max-w-fit mx-auto"
           >
-            <span className="relative z-10 flex items-center gap-2 text-white">
-              View All Services
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-            </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <span>View All Services</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
           </motion.button>
         </motion.div>
       </div>
@@ -104,58 +101,59 @@ const ServiceCard = ({ service, index, navigate }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      whileHover={{ y: -10 }}
       onClick={handleClick}
-      className="group relative overflow-hidden bg-gradient-to-br from-purple-900/40 via-indigo-900/40 to-blue-900/40 backdrop-blur-xl rounded-3xl border-2 border-purple-500/40 hover:border-purple-400/70 transition-all duration-500 cursor-pointer shadow-xl hover:shadow-2xl hover:shadow-purple-500/40"
+      className="group relative flex flex-col h-full overflow-hidden bg-white rounded-3xl border border-bg-secondary/60 hover:border-gray-100 transition-colors duration-500 cursor-pointer shadow-sm hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)]"
     >
-      {/* Background Image with Overlay */}
-      <div className="relative h-56 overflow-hidden">
+      {/* Premium Image Container */}
+      <div className="relative h-64 overflow-hidden rounded-t-3xl">
         <div
           style={{
             backgroundImage: `url(${service.image})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
-          className="absolute inset-0 transition-transform duration-700 group-hover:scale-110"
+          className="absolute inset-0 transition-transform duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+        {/* Very subtle dark scrim to slightly bump badge contrast without huge white fades */}
+        <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500"></div>
 
-        {/* Icon Badge */}
-        <div className="absolute top-4 right-4 z-10">
-          <div
-            className={`p-3 rounded-2xl bg-gradient-to-br ${service.color} shadow-lg group-hover:scale-110 group-hover:rotate-12 transition-all duration-500`}
-          >
-            <Icon className="w-6 h-6 text-white" />
+        {/* Floating Number Badge */}
+        <div className="absolute top-5 left-5 z-10 transition-transform duration-500 group-hover:-translate-y-1">
+          <div className="flex items-center justify-center w-9 h-9 rounded-full bg-white/95 backdrop-blur-md shadow-sm border border-gray-100 text-xs font-bold text-text-main">
+            {String(service.id).padStart(2, "0")}
           </div>
         </div>
 
-        {/* Number Badge */}
-        <div className="absolute bottom-4 left-4 z-10">
-          <div className="flex items-center justify-center w-12 h-12 rounded-full bg-black/50 backdrop-blur-md border-2 border-purple-400/50 group-hover:scale-110 transition-all duration-300">
-            <span className="text-white font-bold text-lg">{service.id}</span>
+        {/* Icon Badge */}
+        <div className="absolute bottom-5 right-5 z-10 transition-transform duration-500 group-hover:-translate-y-1">
+          <div
+            className={`p-3 rounded-2xl bg-gradient-to-br ${service.color} shadow-md text-white`}
+          >
+            <Icon className="w-5 h-5" />
           </div>
         </div>
       </div>
 
-      {/* Content */}
-      <div className="p-6">
-        <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors duration-300">
+      {/* Modern, crisp content area layout */}
+      <div className="flex flex-col flex-1 p-8 bg-white relative z-20 rounded-b-3xl">
+        <h3 className="text-xl font-bold text-text-main mb-3 group-hover:text-accent-purple transition-colors duration-300 line-clamp-1">
           {service.title}
         </h3>
-        <p className="text-gray-300 leading-relaxed mb-4 group-hover:text-gray-200 transition-colors duration-300">
+
+        <p className="text-text-muted text-sm leading-relaxed mb-8 flex-1 line-clamp-3">
           {service.shortDescription}
         </p>
 
-        {/* Learn More Link */}
-        <div className="flex items-center gap-2 text-purple-400 group-hover:text-purple-300 font-semibold transition-all duration-300">
-          <span>Learn More</span>
-          <ArrowRight className="w-4 h-4 transform group-hover:translate-x-2 transition-transform duration-300" />
+        {/* Minimalist Learn More */}
+        <div className="mt-auto flex items-center gap-2 text-sm font-semibold text-text-main group-hover:text-accent-purple transition-colors duration-300">
+          <span>Explore Service</span>
+          <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
         </div>
       </div>
 
-      {/* Hover Gradient Overlay */}
+      {/* Decorative colored line on bottom border on hover */}
       <div
-        className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none`}
+        className={`absolute top-0 left-0 w-full h-1 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500 ease-out bg-gradient-to-r ${service.color} z-30`}
       ></div>
     </motion.div>
   );

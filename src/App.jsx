@@ -1,5 +1,6 @@
 import { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { MotionConfig } from "framer-motion";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar.jsx";
 import Footer from "./components/Footer/Footer.jsx";
@@ -14,30 +15,32 @@ const ContactPage = lazy(() => import("./pages/ContactPage.jsx"));
 
 // Loading component
 const LoadingSpinner = () => (
-  <div className="flex items-center justify-center min-h-screen">
+  <div className="flex items-center justify-center min-h-screen bg-bg-main">
     <div className="relative w-16 h-16">
-      <div className="absolute inset-0 rounded-full border-4 border-purple-200/20"></div>
-      <div className="absolute inset-0 rounded-full border-4 border-t-purple-600 border-r-pink-600 border-b-blue-600 border-l-transparent animate-spin"></div>
+      <div className="absolute inset-0 rounded-full border-4 border-accent-purple/20"></div>
+      <div className="absolute inset-0 rounded-full border-4 border-t-accent-purple border-r-accent-pink border-b-accent-blue border-l-transparent animate-spin"></div>
     </div>
   </div>
 );
 
 function App() {
   return (
-    <Router>
-      <Navbar />
-      <Suspense fallback={<LoadingSpinner />}>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/services" element={<ServicesPage />} />
-          <Route path="/services/:slug" element={<ServiceDetailPage />} />
-          <Route path="/portfolio" element={<PortfolioPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-        </Routes>
-      </Suspense>
-      <Footer />
-    </Router>
+    <MotionConfig reducedMotion="user">
+      <Router>
+        <Navbar />
+        <Suspense fallback={<LoadingSpinner />}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/services/:slug" element={<ServiceDetailPage />} />
+            <Route path="/portfolio" element={<PortfolioPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+          </Routes>
+        </Suspense>
+        <Footer />
+      </Router>
+    </MotionConfig>
   );
 }
 
