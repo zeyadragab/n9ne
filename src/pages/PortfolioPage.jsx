@@ -25,15 +25,6 @@ const PortfolioPage = () => {
     if (activeCategory === "all") {
       const allItems = [
         ...portfolioData.websites.map((item) => ({ ...item, type: "website" })),
-        ...portfolioData.socialMedia.map((item) => ({
-          ...item,
-          type: "social",
-        })),
-        ...portfolioData.videos.map((item) => ({ ...item, type: "video" })),
-        ...portfolioData.productImages.map((item) => ({
-          ...item,
-          type: "product",
-        })),
       ];
       setFilteredItems(allItems);
     } else {
@@ -41,18 +32,6 @@ const PortfolioPage = () => {
         websites: portfolioData.websites.map((item) => ({
           ...item,
           type: "website",
-        })),
-        socialMedia: portfolioData.socialMedia.map((item) => ({
-          ...item,
-          type: "social",
-        })),
-        videos: portfolioData.videos.map((item) => ({
-          ...item,
-          type: "video",
-        })),
-        productImages: portfolioData.productImages.map((item) => ({
-          ...item,
-          type: "product",
         })),
       };
       setFilteredItems(categoryMap[activeCategory] || []);
@@ -63,12 +42,6 @@ const PortfolioPage = () => {
     switch (type) {
       case "website":
         return Globe;
-      case "social":
-        return Share2;
-      case "video":
-        return Video;
-      case "product":
-        return Camera;
       default:
         return Globe;
     }
@@ -78,12 +51,6 @@ const PortfolioPage = () => {
     switch (type) {
       case "website":
         return "from-accent-purple to-accent-blue";
-      case "social":
-        return "from-accent-pink to-accent-purple";
-      case "video":
-        return "from-accent-blue to-accent-purple";
-      case "product":
-        return "from-orange-500 to-accent-pink";
       default:
         return "from-accent-purple to-accent-blue";
     }
@@ -103,17 +70,6 @@ const PortfolioPage = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ delay: 0.2, type: "spring", stiffness: 100 }}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-accent-purple/10 via-accent-pink/10 to-accent-blue/10 border border-accent-purple/20 backdrop-blur-sm mb-6"
-          >
-            <Sparkles className="w-5 h-5 text-accent-purple" />
-            <span className="text-sm font-semibold bg-gradient-to-r from-accent-purple via-accent-pink to-accent-blue bg-clip-text text-transparent">
-              Our Portfolio
-            </span>
-          </motion.div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-main mb-6">
             Our{" "}
@@ -122,8 +78,7 @@ const PortfolioPage = () => {
             </span>
           </h1>
           <p className="text-lg md:text-xl text-text-muted max-w-3xl mx-auto">
-            Explore our portfolio of stunning websites, engaging social media
-            campaigns, professional videos, and beautiful product photography
+            Explore our portfolio of stunning websites and digital experiences
           </p>
         </motion.div>
 
@@ -185,48 +140,6 @@ const PortfolioPage = () => {
                 type: "website",
               }))}
               color="from-accent-purple to-accent-blue"
-              getCategoryIcon={getCategoryIcon}
-              getCategoryColor={getCategoryColor}
-            />
-
-            {/* Social Media Section */}
-            <PortfolioSection
-              title="Social Media"
-              subtitle="Engaging campaigns that grow your audience"
-              icon={Share2}
-              items={portfolioData.socialMedia.map((item) => ({
-                ...item,
-                type: "social",
-              }))}
-              color="from-accent-pink to-accent-purple"
-              getCategoryIcon={getCategoryIcon}
-              getCategoryColor={getCategoryColor}
-            />
-
-            {/* Videos Section */}
-            <PortfolioSection
-              title="Videos"
-              subtitle="Professional video content that captivates"
-              icon={Video}
-              items={portfolioData.videos.map((item) => ({
-                ...item,
-                type: "video",
-              }))}
-              color="from-accent-blue to-accent-purple"
-              getCategoryIcon={getCategoryIcon}
-              getCategoryColor={getCategoryColor}
-            />
-
-            {/* Product Images Section */}
-            <PortfolioSection
-              title="Product Images"
-              subtitle="Stunning photography that sells"
-              icon={Camera}
-              items={portfolioData.productImages.map((item) => ({
-                ...item,
-                type: "product",
-              }))}
-              color="from-orange-500 to-accent-pink"
               getCategoryIcon={getCategoryIcon}
               getCategoryColor={getCategoryColor}
             />
@@ -345,33 +258,6 @@ const PortfolioCard = ({ item, index, getCategoryIcon, getCategoryColor }) => {
           </div>
         </div>
 
-        {/* Video Duration Badge */}
-        {item.type === "video" && item.duration && (
-          <div className="absolute bottom-5 right-5 z-10 flex items-center gap-1.5 px-3 py-1.5 bg-black/70 backdrop-blur-md rounded-lg shadow-sm transition-transform duration-500 group-hover:-translate-y-1">
-            <Clock className="w-3.5 h-3.5 text-white" />
-            <span className="text-xs text-white font-semibold">
-              {item.duration}
-            </span>
-          </div>
-        )}
-
-        {/* Social Media Stats Badge */}
-        {item.type === "social" && item.stats && (
-          <div className="absolute bottom-5 right-5 z-10 flex items-center gap-1.5 px-3 py-1.5 bg-black/70 backdrop-blur-md rounded-lg shadow-sm transition-transform duration-500 group-hover:-translate-y-1">
-            <Eye className="w-3.5 h-3.5 text-white" />
-            <span className="text-xs text-white font-semibold">{item.stats}</span>
-          </div>
-        )}
-
-        {/* Play Button for Videos */}
-        {item.type === "video" && (
-          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <div className="w-16 h-16 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center border border-white shadow-lg group-hover:scale-110 transition-transform duration-300 delay-100">
-              <Play className="w-6 h-6 text-accent-blue fill-accent-blue ml-1" />
-            </div>
-          </div>
-        )}
-
         {/* Hover Overlay for Websites */}
         {item.type === "website" && (
           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-bg-main/40 backdrop-blur-sm">
@@ -401,23 +287,6 @@ const PortfolioCard = ({ item, index, getCategoryIcon, getCategoryColor }) => {
 
         {/* Tags Row */}
         <div className="flex flex-wrap items-center gap-2 mt-auto pt-4 border-t border-gray-100">
-          {/* Platform / Category / Type Logic */}
-          {item.platform && (
-            <span className="px-3 py-1 text-xs font-semibold text-accent-pink bg-accent-pink/10 rounded-lg">
-              {item.platform}
-            </span>
-          )}
-          {item.category && (
-            <span className="px-3 py-1 text-xs font-semibold text-orange-600 bg-orange-500/10 rounded-lg">
-              {item.category}
-            </span>
-          )}
-          {item.type === "video" && item.type && (
-            <span className="px-3 py-1 text-xs font-semibold text-accent-blue bg-accent-blue/10 rounded-lg">
-              {item.type}
-            </span>
-          )}
-
           {/* Regular Tags */}
           {item.tags && item.tags.slice(0, 2).map((tag, idx) => (
             <span
