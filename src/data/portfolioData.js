@@ -2,14 +2,13 @@ export const portfolioData = {
   websites: [
     {
       id: 1,
-      title: "E-Commerce Platform",
-      client: "Fashion Brand",
-      description:
-        "Modern e-commerce website with seamless checkout experience",
+           title: "Product",
+      client: "Apple M4 ",
+      description: "Analytics dashboard with real-time data visualization",
       image:
-      "/image/portImage/eComm.png",
-      tags: ["React", "Node.js", "Stripe"],
-      link: "#",
+        "/image/portImage/m4.png",
+      tags: ["React.js", "tailwind", "Framer Motion"],
+      link: "https://m4-jet.vercel.app/",
     },
     {
       id: 2,
@@ -41,6 +40,7 @@ export const portfolioData = {
       tags: ["React.js", "tailwind", "Framer Motion"],
       link: "https://alialla.vercel.app/",
     },
+
   ],
 };
 
